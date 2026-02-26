@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bb4gd4bx0gk64"]
+
+[ext_resource type="Texture2D" uid="uid://cpfjqfjn0ogv3" path="res://Texture/Player/MrBlock/MrBlockTexture.png" id="1_2ydio"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+depth_draw_mode = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_2ydio")
+texture_filter = 0

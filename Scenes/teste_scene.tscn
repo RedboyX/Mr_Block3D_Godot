@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ckn06u82bvr7h"]
+
+[ext_resource type="PackedScene" uid="uid://d2shlq4vattbh" path="res://Scenes/mr_block.tscn" id="1_dturn"]
+[ext_resource type="Material" uid="uid://d0oqn1s7xutij" path="res://Materials/kenney_prototype_textures/Black_Prototype.tres" id="1_ytbrb"]
+[ext_resource type="PackedScene" uid="uid://b884xn2wx1wmd" path="res://Scenes/Camera.tscn" id="2_gictf"]
+[ext_resource type="Material" uid="uid://i4rthg2e2hjf" path="res://Materials/kenney_prototype_textures/Orange_Prototype.tres" id="4_l7b51"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gictf"]
+sky_top_color = Color(0.24706805, 0.8696031, 0.8239092, 1)
+sky_horizon_color = Color(0.95558506, 0.9387509, 0.94544536, 1)
+ground_bottom_color = Color(0.41611993, 0.7369136, 0.8407084, 1)
+ground_horizon_color = Color(0.95686275, 0.9372549, 0.94509804, 1)
+
+[sub_resource type="Sky" id="Sky_ytbrb"]
+sky_material = SubResource("ProceduralSkyMaterial_gictf")
+
+[sub_resource type="Environment" id="Environment_dturn"]
+background_mode = 2
+sky = SubResource("Sky_ytbrb")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+reflected_light_source = 1
+
+[node name="TesteScene" type="Node3D" unique_id=773702156]
+
+[node name="MrBlock" parent="." unique_id=250738059 instance=ExtResource("1_dturn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3020754, 0.17905784, 1.2661381)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1682536915]
+transform = Transform3D(-0.48084182, -0.86118037, -0.16480091, -0.51584214, 0.12586, 0.84738785, -0.70901203, 0.49247083, -0.5047519, -3.5995674, 3.586131, 0)
+light_color = Color(0.83649415, 0.9005458, 0.9332914, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1681865124]
+environment = SubResource("Environment_dturn")
+
+[node name="Pivot" parent="." unique_id=1957528173 instance=ExtResource("2_gictf")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1249236158]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -11.573361, 3.8432508, -0.46106195)
+use_collision = true
+collision_layer = 3
+size = Vector3(14.627441, 1, 5.0668945)
+material = ExtResource("4_l7b51")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1778734972]
+transform = Transform3D(1, 0, 0, 0, 1.0883659, 0, 0, 0, 1, 0.08432007, -0.35464096, 0.17529297)
+material_override = ExtResource("1_ytbrb")
+use_collision = true
+collision_layer = 3
+size = Vector3(19.7984, 1, 20.125977)
