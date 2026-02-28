@@ -25,7 +25,7 @@ reflected_light_source = 1
 [node name="TesteScene" type="Node3D" unique_id=773702156]
 
 [node name="MrBlock" parent="." unique_id=250738059 instance=ExtResource("1_dturn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3020754, 0.17905784, 1.2661381)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.400456, 0.17905784, 15.64369)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1682536915]
 transform = Transform3D(-0.48084182, -0.86118037, -0.16480091, -0.51584214, 0.12586, 0.84738785, -0.70901203, 0.49247083, -0.5047519, -3.5995674, 3.586131, 0)
@@ -37,6 +37,13 @@ environment = SubResource("Environment_dturn")
 
 [node name="Pivot" parent="." unique_id=1957528173 instance=ExtResource("2_gictf")]
 
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=530173615]
+transform = Transform3D(1.5325351, 0, 0, 0, 1.1845404, 0, 0, 0, 1.510619, -8.124966, 6.454874, 15.227072)
+material_override = ExtResource("1_ytbrb")
+use_collision = true
+collision_layer = 3
+size = Vector3(2, 10.6588745, 2)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1249236158]
 transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -11.573361, 3.8432508, -0.46106195)
 use_collision = true
@@ -45,8 +52,15 @@ size = Vector3(14.627441, 1, 5.0668945)
 material = ExtResource("4_l7b51")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1778734972]
-transform = Transform3D(1, 0, 0, 0, 1.0883659, 0, 0, 0, 1, 0.08432007, -0.35464096, 0.17529297)
+transform = Transform3D(2.5501862, 0, 0, 0, 1.0883659, 0, 0, 0, 2.2012768, 0.31367493, -0.35464096, 0.17529297)
 material_override = ExtResource("1_ytbrb")
 use_collision = true
 collision_layer = 3
-size = Vector3(19.7984, 1, 20.125977)
+size = Vector3(20.25711, 1, 20.125977)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1210769064]
+transform = Transform3D(1.5280908, 0, 0.15393601, 0, 1.1845404, 0, -0.116629004, 0, 1.5027554, -14.358539, 6.454874, 15.227072)
+material_override = ExtResource("1_ytbrb")
+use_collision = true
+collision_layer = 3
+size = Vector3(2, 10.6588745, 2)

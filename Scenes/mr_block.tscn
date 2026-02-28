@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7yubf4j7ypl6" path="res://Scripts/Player/mr_block.gd" id="1_65p5u"]
 [ext_resource type="Material" uid="uid://bb4gd4bx0gk64" path="res://Materials/Player/MrBlock/MrBlockMaterial.tres" id="2_t3in3"]
 [ext_resource type="Texture2D" uid="uid://dvon2lj7ixp1k" path="res://Models/MR Block V4_Untitled.png" id="3_ts4ey"]
+[ext_resource type="Material" uid="uid://djwkodkbmyjfg" path="res://Materials/Player/MrBlock/MrBlockShadow.tres" id="4_mysln"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v12m5"]
 radius = 0.3857422
@@ -102,9 +103,14 @@ bind/20/name = &"Foot.L"
 bind/20/bone = -1
 bind/20/pose = Transform3D(-0.13534316, -2.1555345, -0.11975941, -0.00011939162, -0.11998717, 2.159767, -2.1588464, 0.13514115, 0.007387057, 0.077078335, 0.035658594, -0.31003484)
 
-[node name="MrBlock" type="CharacterBody3D" unique_id=250738059]
+[sub_resource type="PlaneMesh" id="PlaneMesh_mysln"]
+flip_faces = true
+orientation = 2
+
+[node name="MrBlock" type="CharacterBody3D" unique_id=250738059 node_paths=PackedStringArray("wall_ray")]
 floor_snap_length = 5.0
 script = ExtResource("1_65p5u")
+wall_ray = NodePath("MR Block V4/Armature/WallRay")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1523534132]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005292177, 0.7432677, 0)
@@ -115,6 +121,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020112276, 0.0016837418, 0
 
 [node name="Armature" type="Node3D" parent="MR Block V4" unique_id=1963486690]
 transform = Transform3D(0.4622998, 0.00046561428, 0, -0.00046561428, 0.4622998, 0, 0, 0, 0.4623, 0.031769473, 0.62000006, 0.034977496)
+
+[node name="WallRay" type="RayCast3D" parent="MR Block V4/Armature" unique_id=1268889414]
+transform = Transform3D(2.1630964, -0.0021786047, 0, 0.0021786047, 2.1630964, 0, 0, 0, 2.1630976, -0.025224118, 0.008391738, -0.07565974)
+target_position = Vector3(0, 0, 0.5)
+debug_shape_thickness = 5
 
 [node name="Skeleton3D" type="Skeleton3D" parent="MR Block V4/Armature" unique_id=1409564996]
 bones/0/name = "Waist"
@@ -270,3 +281,14 @@ mesh = SubResource("ArrayMesh_ho2c7")
 skin = SubResource("Skin_3oa2i")
 skeleton = NodePath("..")
 surface_material_override/0 = ExtResource("2_t3in3")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1043435356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013823867, 0)
+visible = false
+target_position = Vector3(0, -999, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RayCast3D" unique_id=1842667673]
+transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 0, 0, 0)
+visible = false
+material_override = ExtResource("4_mysln")
+mesh = SubResource("PlaneMesh_mysln")

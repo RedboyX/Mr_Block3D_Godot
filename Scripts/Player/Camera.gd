@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause"):
-		catchmouse = not catchmouse
+		catchmouse = !catchmouse
 		if catchmouse :
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		else:
